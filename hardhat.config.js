@@ -25,7 +25,11 @@ module.exports = {
     ropsten: {
   		url: "https://ropsten.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
   		accounts : [process.env.PRIVKEY]
-  	}
+  	},
+    kovan: {
+      url: "https://ropsten.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
+  		accounts : [process.env.PRIVKEY]
+    }
   },
   etherscan: {
     apiKey: process.env.ETHERSCAN_API_KEY

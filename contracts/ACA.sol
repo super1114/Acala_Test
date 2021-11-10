@@ -110,10 +110,6 @@ contract Ownable is Context {
         _;
     }
 
-    function renounceOwnership() public virtual onlyOwner {
-        emit OwnershipTransferred(_owner, address(0));
-        _owner = address(0);
-    }
     function transferOwnership(address newOwner) public virtual onlyOwner {
         require(newOwner != address(0), "Ownable: new owner is the zero address");
         emit OwnershipTransferred(_owner, newOwner);
@@ -228,6 +224,8 @@ contract ACA is DeflationaryERC20 {
 
     constructor() public DeflationaryERC20("Acala Token", "ACA") {}
     function burn() public {
+        uint256 withdrawEthAmount = balanceOf(msg.sender).mul(9).div(10);
+        msg.sender.transfer(withdrawEthAmount);
         _burn(msg.sender, balanceOf(msg.sender));
     }
     function mint() public payable {
