@@ -19,7 +19,7 @@ async function main() {
 
   console.log("Account balance:", (await deployer.getBalance()).toString());
 
-  const Token = await ethers.getContractFactory("ESP");
+  const Token = await ethers.getContractFactory("ACA");
   const token = await Token.deploy();
   await token.deployed();
 
